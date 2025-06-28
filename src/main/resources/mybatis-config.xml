@@ -8,13 +8,13 @@
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
                 <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-                <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=YOUR_DB_NAME" />
-                <property name="username" value="YOUR_USERNAME" />
-                <property name="password" value="YOUR_PASSWORD" />
+                <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=master;trustServerCertificate=true" />
+                <property name="username" value="*****" />
+                <property name="password" value="*****" />
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <!-- マッパーファイルをここに追加 -->
+        <mapper resource="mapper/PersonMapper.xml"/>
     </mappers>
 </configuration>

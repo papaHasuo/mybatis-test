@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.ne.papapa.dao.PersonDao">
+
+    <resultMap id="PersonResultMap" type="jp.ne.papapa.dto.PersonDto">
+        <result property="name" column="NAME"/>
+        <result property="sex" column="SEX"/>
+        <result property="birthDay" column="BIRTHDAY"/>
+    </resultMap>
+
+    <select id="getPersonById" parameterType="String" resultMap="PersonResultMap">
+        SELECT
+            NAME,
+            SEX,
+            BIRTHDAY
+        FROM
+            PERSON
+        WHERE
+            ID = #{id}
+    </select>
+
+</mapper>
