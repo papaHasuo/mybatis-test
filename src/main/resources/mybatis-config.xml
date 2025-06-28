@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+                <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=YOUR_DB_NAME" />
+                <property name="username" value="YOUR_USERNAME" />
+                <property name="password" value="YOUR_PASSWORD" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!-- マッパーファイルをここに追加 -->
+    </mappers>
+</configuration>
