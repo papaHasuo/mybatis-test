@@ -1,4 +1,4 @@
-package jp.ne.papapa;
+package jp.ne.papapa.util;
 
 import java.io.Reader;
 import org.apache.ibatis.io.Resources;
