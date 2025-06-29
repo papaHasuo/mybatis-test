@@ -21,4 +21,22 @@
             ID = #{id}
     </select>
 
+    <insert id="insertPerson" parameterType="jp.ne.papapa.entity.PersonEntity">
+        INSERT INTO PERSON (
+            ID,
+            NAME,
+            SEX,
+            BIRTHDAY,
+            CREATED_AT,
+            UPDATED_AT
+        ) VALUES (
+            #{id},
+            #{name},
+            #{sex},
+            #{birthDay},
+            #{createdAt},
+            #{updatedAt}
+        )
+    </insert>
+
 </mapper>
