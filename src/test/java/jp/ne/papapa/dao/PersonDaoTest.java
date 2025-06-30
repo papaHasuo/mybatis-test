@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.*;
 
 import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.core.api.dataset.ExpectedDataSet;
 import com.github.database.rider.junit5.api.DBRider;
 
 import java.time.LocalDate;
@@ -72,5 +73,26 @@ class PersonDaoTest {
 
         // 検証
         assertNull(actual, "PersonDto should be null for non-existent ID");
+    }
+
+    @Test
+    @DataSet(value = "dataset/PersonDao/input/PERSON.csv")
+    @ExpectedDataSet(value = "dataset/PersonDao/expected/PERSON.csv")
+    void testInsertPerson_正常に登録できる() {
+        // 新規データ用意
+        PersonEntity entity = new PersonEntity();
+        entity.setId("P003");
+        entity.setName("山田次郎");
+        entity.setSex("M");
+        entity.setBirthDay(LocalDate.of(1988, 12, 25));
+        entity.setCreatedAt(LocalDateTime.of(2024, 1, 1, 10, 0));
+        entity.setUpdatedAt(LocalDateTime.of(2024, 1, 1, 10, 0));
+
+        // 実行
+        int count = personDao.insertPerson(entity);
+        session.commit();
+
+        // 検証
+        assertEquals(1, count);
     }
 }
