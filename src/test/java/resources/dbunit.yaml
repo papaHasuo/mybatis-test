@@ -1,7 +1,0 @@
-properties:
-  allowEmptyFields: true
-connectionConfig: 
-  driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-  url: "jdbc:sqlserver://localhost:1433;databaseName=*****;trustServerCertificate=true"
-  user: "*****"
-  password: "*****"
