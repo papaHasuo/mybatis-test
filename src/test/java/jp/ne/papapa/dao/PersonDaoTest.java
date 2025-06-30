@@ -26,7 +26,7 @@ class PersonDaoTest {
     @BeforeEach
     void init() {
         try {
-            session = sqlSessionFactory.openSession()
+            session = sqlSessionFactory.openSession();
             personDao = session.getMapper(PersonDao.class);
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,5 +39,11 @@ class PersonDaoTest {
         if (session != null) {
             session.close();
         }
+    }
+
+    @Test
+    void testGetPersonById(){
+        PersonDto person = personDao.getPersonById("P001"); // ID=1のユーザー取得
+        assertNotNull(person, "Person should not be null");
     }
 }
